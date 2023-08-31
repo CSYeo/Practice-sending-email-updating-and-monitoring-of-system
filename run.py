@@ -14,19 +14,21 @@ def parse(folder):
         #Here remember to use os.listdir if not it will
         #print directory as a string
 
-        filepath = "{}\\{}".format(folder, file)
+        filepath = "{}/{}".format(folder, file)
 
         with open(filepath, 'r') as data:
             lines = data.readlines()
     #lines now will read one line at a time
             name = lines[0].strip()
-            weight = lines[1].strip()
+            weight = int(lines[1].strip(" lbs"))
             description = ''.join(lines[2:]).strip()
+            image = "{}.jpeg".format(splitext(file))
 
             dict = {
             "name": name,
             "weight (in lbs)": weight,
             "description": description,
+            "image_name" = image,
             }
 
         posts.append(dict)
