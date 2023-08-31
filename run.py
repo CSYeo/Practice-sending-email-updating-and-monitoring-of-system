@@ -4,7 +4,7 @@
 import os
 import requests
 
-directory = "{}/data/descriptions".format(os.getcwd())
+directory = "{}/supplier-data/descriptions".format(os.getcwd())
 
 def parse(folder):
     posts = []
@@ -20,13 +20,13 @@ def parse(folder):
             lines = data.readlines()
     #lines now will read one line at a time
             name = lines[0].strip()
-            weight = int(lines[1].strip(" lbs"))
+            weight = int(lines[1].strip("lbs\n"))
             description = ''.join(lines[2:]).strip()
-            image = "{}.jpeg".format(splitext(file))
+            image = "{}.jpeg".format(os.path.splitext(file)[0])
 
             dict = {
             "name": name,
-            "weight (in lbs)": weight,
+            "weight": weight,
             "description": description,
             "image_name": image,
             }
@@ -36,8 +36,10 @@ def parse(folder):
     return posts
 
 to_post = parse(directory)
+#test to see if dictionary is formatted correctly
+#print(to_post[1])
 
 for p in to_post:
-    response = requests.post("https://http://34.74.64.240/fruits/", data=p)
+    response = requests.post("http://34.74.64.240/fruits/", data=p)
     print(response)
     #here any action would do, we just need to call the response
