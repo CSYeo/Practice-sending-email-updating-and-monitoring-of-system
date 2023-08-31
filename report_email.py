@@ -16,7 +16,8 @@ def report(f):
     with open(filepath, 'r') as data:
             lines = data.readlines()
     #lines now will read one line at a time
-            name_weight_list.append("{}{}".format(lines[0],lines[1]))
+            name_weight_list.append("name: {}".format(lines[0]))
+            name_weight_list.append("weight: {}".format(lines[1]))
 #  name_weight = "\n".join(name_weight_list)
   return name_weight_list
 
