@@ -16,9 +16,9 @@ def report(f):
     with open(filepath, 'r') as data:
             lines = data.readlines()
     #lines now will read one line at a time
-            name_weight_list.append("{}\n{}\n".format(lines[0],lines[1]))
-  name_weight = "\n".join(name_weight_list)
-  return name_weight
+            name_weight_list.append("{}{}".format(lines[0],lines[1]))
+#  name_weight = "\n".join(name_weight_list)
+  return name_weight_list
 
 today = datetime.datetime.now()
 formatted_date = today.strftime("%B  %d, %Y")
@@ -27,6 +27,7 @@ title = "Processed Update on {}".format(formatted_date)
 def main():
   data = report(folder)
   print(data)
+  print(title)
   reports.generate_report("/tmp/processed.pdf",title, data)
 
   sender = "automation@example.com"
