@@ -16,3 +16,7 @@ def report(f):
             name&weight = "{}\n"lines[0:1].strip()
             name_weight = name_weight.join(name&weight)
   return name_weight
+
+today = datetime.now()
+formatted_date = today.strftime("%B  %d, %Y")
+title = "Processed Update on {}".format(formatted_date)
