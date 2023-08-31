@@ -28,7 +28,7 @@ def parse(folder):
             "name": name,
             "weight (in lbs)": weight,
             "description": description,
-            "image_name" = image,
+            "image_name": image,
             }
 
         posts.append(dict)
