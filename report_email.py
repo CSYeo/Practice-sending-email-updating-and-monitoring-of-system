@@ -34,7 +34,7 @@ def main():
   subject = "Upload Completed - Online Fruit Store"
   body = "All fruits are uploaded to our website successfully. A detailed list is attached to this email."
 
-  message = emails.generate(sender, recipient, subject, body, "/tmp/processed.pdf")
+  message = emails.generate(sender, receiver, subject, body, "/tmp/processed.pdf")
   emails.send(message)
 
 if __name__ == "__main__":

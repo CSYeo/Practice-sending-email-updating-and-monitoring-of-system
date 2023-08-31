@@ -6,7 +6,7 @@ import mimetypes
 import os.path
 import smtplib
 
-def generate(sender, recipient, subject, body, attachment_path = None):
+def generate(sender, receiver, subject, body, attachment_path = None):
   message = email.message.EmailMessage()
   message["From"] = sender
   message["To"] = recipient
