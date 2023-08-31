@@ -6,13 +6,13 @@ import mimetypes
 import os.path
 import smtplib
 
-def generate(sender, receiver, subject, body, attachment_path = ""):
+def generate(sender, receiver, subject, body, attachment_path = None):
   message = email.message.EmailMessage()
   message["From"] = sender
   message["To"] = receiver
   message ["Subject"] = subject
   message.set_content(body)
-  if attachement_filename != ""
+  if attachement_filename != None
     attachment_filename = os.path.basename(attachment_path)
     mime_type, _ = mimetypes.guess_type(attachment_path)
     mime_type, mime_subtype = mime_type.split('/',1)
